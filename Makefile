@@ -11,7 +11,7 @@ all: utils
 
 .PHONY: test bin install
 
-include make/$(BUILD_ENV).makefile
+include env/$(BUILD_ENV).makefile
 
 SUB_MAKEFILES != find src -type f -name '*.makefile'
 include $(SUB_MAKEFILES)
