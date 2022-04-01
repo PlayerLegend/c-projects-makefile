@@ -2,9 +2,18 @@
 
 set -e
 
+echo
+echo '*'
+echo '*' "Testing: $@"
+echo '*'
+echo
+
+make depend
+make clean
+make BUILD_ENV=debug "$@" $DEPENDS
+
 for program in "$@"
 do
-    
     echo -n "Testing $program ... "
 
     fatal() {
@@ -38,3 +47,5 @@ do
 
     echo "PASSED"
 done
+
+make clean
